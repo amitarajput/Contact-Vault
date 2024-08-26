@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>This is home page</title>
+</head>
+<body>
+<section>
+
+<div class="card mr-4 ml-3">
+<div class="card-body">
+<h1 class="text-center">Your Contacts</h1>
+
+<!--for search bar-->
+<div class="search-container my-3">
+	<!--this onkey search fucntion will create on js-->
+<input onkeyup="search()" type="text" class="form-control" id="search-input" placeholder="search your contacts"/>
+
+<div class="search-result">
+	
+	<!--result comes here-->
+</div>
+
+
+</div>
+<!-- for tables -->
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="c :${contacts}"> <!-- get all contacts from database -->
+      <th scope="row" th:text="${'SCM2020'+c.cId}">1</th><!--fetch ids from database using thymeleaf  -->
+      
+      
+      <!-- for fetching image with authenticate user -->
+      
+      <td > 
+      <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.image}}" alt="profile photo" />
+      
+      <span th:text="${c.name}"></span></td>
+      
+        <!-- for giving link to the email id after that create that handler-->
+      <td>
+      <a href="#" th:href="@{'/user/'+${c.cId}+'/contact'}">
+      <span th:text="${c.email}"></span>
+      
+      </a>
+      
+      
+      <td th:text = "${c.phone}">@mdo</td><!--  -->
+      <td>
+   <!-- for pop up window when we click on delete button |use for pass dynamic values  -->
+      <a href="#" th:onclick="|deleteContact(${c.cId})|" class="btn btn-danger btn-sm">Delete</a>
+      
+      <form method ="post" th:action="@{'/user/update_contact/' + ${c.cId}}" class="mt-2"> 
+      <button type ="submit" button class="btn btn-primary btn-sm">Update</button>
+      
+      </form>
+      
+      </td>
+    </tr>
+    <tr>
+    
+  </tbody>
+</table>
+
+<!--  Pagination: to give page numbers to page-->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+  
+   <!--when we click on previous page then when we are in first then no need to show previous page -->
+    <li th:if="${currentPage != 0}" class="page-item"><a th:href="@{'/user/show_contacts/'+${currentPage-1}}" class="page-link" href="#">Previous</a></li>
+    
+    <!-- th:each loop for how many contact pages we have -->
+    <!-- classappend will show the page number in which we have -->
+    <!-- th:href means when we click on page number then we will go to that page which we selected -->
+    
+    <li th:classappend = "${currentPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a th:href="@{'/user/show_contacts/'+${i-1}}" class="page-link" href="#"><span th:text="${i}"> </span></a></li>
+    
+    <!--when we click on last page then when we are in last page then no need to show next page -->
+    <li th:if="${currentPage+1 != totalPages}" class="page-item"><a th:href="@{'/user/show_contacts/'+${currentPage+1}}"class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+</div>
+
+</div>
+
+
+
+</section>
+	
+</body>
+</html>

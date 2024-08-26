@@ -1,0 +1,129 @@
+body {
+    background: #e2e2e2 !important;
+}
+
+.bg-primary {
+    background: #FFFF00 !important;
+}
+
+.image1 {
+    width: 100%;
+    height: 93vh;
+    background: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(../img/image1.jpg);
+    background-size: cover;
+    color: white;
+  
+}
+.my-card{
+	padding: 20px;
+	background:#FFFFFF;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 420px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+/* Override Bootstrap's text-info class to set the color to black */
+.text-info {
+    color: black !important; /* The !important is to ensure it overrides other styles */
+}
+
+/* Optional: Override the color for all text in the login form */
+#login .container #login-row #login-column #login-box #login-form {
+    color: black !important;
+}
+#login-form .btn {
+    background-color: yellow !important; /* Yellow background */
+    color: black !important; /* Black text */
+    border: none; /* Remove border if needed */
+}
+
+/* hiding the sidebar into phone screen */
+@media only screen and (max-width: 600px){
+	.sidebar{
+	display: none;
+	width: 80% !important;
+	background: white;
+	height: 100vh;
+	position: fixed;
+	padding-top: 20px;
+	}
+	.content{
+	margin-left: 0%!important
+	}
+	
+	/* Styling for side bar and content bar for base.html */
+}
+.sidebar{
+	width: 18%;
+	background:white;
+	height: 100%;
+	position: fixed; /* sidebar will be fixed */
+	padding-top:45px;
+	z-index: 9999999999999999999999;
+	
+}
+/* now styling anchor tag in style bar check on base.html */
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: black;
+}
+/*when click on side bar button then change the color means hover  */
+.sidebar a:hover{
+	background:#e2e2e2
+}
+/*end line in side bar */
+.sidebar .divider{
+	height: 2px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+.content{
+	margin-left: 20%;
+	
+}
+.sidebar .crossbtn{
+	position: absolute;
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.my_profile_picture{
+	height: 35px;
+	width: 35px;
+	object-fit:cover;/*will see proper image */
+	border-radius:50%;/*see photos circular in show contacts */
+	border:1px solid black; /*will see black border in images */
+}
+/*serach css  */
+
+.search-container{
+	
+}
+.search-result{
+	position: absolute;
+	background: white;
+	width:100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
+	
+}
+
+
+
+

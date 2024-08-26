@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8" />
+    <title>This is home page</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .created-by {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .created-by strong {
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="container text-center">
+        <div class="card mt-4">
+            <div class="card-body my-5">
+                <div class="container text-center">
+                    <img src="" style="height: 100px; width: 100px;" class="my_profile_picture" th:src="@{'/img/contact_logo.png'}" alt="profile photo" />
+                </div>
+                
+                <h1 class="text-center mt-3 text-secondary font-italic font-weight-light">
+                    Contact Vault is a secure web application designed to help users manage their private contacts efficiently. The platform provides a personal space where users can store, organize, and access their favorite and essential contact information.
+                    <br><br>
+                    Key Features:
+                </h1>
+                <ul class="text-left mx-auto" style="max-width: 600px;">
+                    <li>Add New Contacts: Users can easily add new contacts with relevant details, ensuring that their important connections are just a click away.</li>
+                    <li>View and Manage Contacts: The application allows users to view their list of contacts, edit details, and organize them as needed.</li>
+                    <li>User Profile: Each user has a personal profile page where they can manage their information and customize their experience.</li>
+                    <li>Secure Access: The application is designed with user security in mind, ensuring that all contact information is kept private and protected.</li>
+                    <li>User Authentication: Users must sign in to access their vault, keeping unauthorized users from viewing or altering their contact information.</li>
+                </ul>
+
+                <h2 class="text-center mt-3 text-secondary font-italic font-weight-light">
+                    Purpose: Contact Vault is tailored for individuals who value privacy and need a reliable solution for managing their personal and professional contacts in a secure environment.
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="created-by text-center">
+        <strong>Created by: Amita Rajput</strong>
+    </div>
+</section>
+</body>
+</html>
